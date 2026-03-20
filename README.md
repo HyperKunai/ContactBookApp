@@ -38,3 +38,10 @@ ContactBookApp/
 ├── index.js
 ├── package.json
 └── README.md
+
+## 👨‍💻 Author
+
+**Edward NAvarreto**  
+Computer Science Student  
+
+- GitHub: https://github.com/HyperKunai
