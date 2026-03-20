@@ -3,6 +3,13 @@
 A mobile contact management application built with **React Native** and **TypeScript**.  
 This app allows users to store, view, and manage contacts directly from a mobile interface.
 
+## 👨‍💻 Author
+
+**Edward Navarreto**  
+Computer Science Student  
+
+- GitHub: https://github.com/HyperKunai
+
 ## 🚀 Features
 
 - Add new contacts
@@ -38,10 +45,3 @@ ContactBookApp/
 ├── index.js
 ├── package.json
 └── README.md
-
-## 👨‍💻 Author
-
-**Edward NAvarreto**  
-Computer Science Student  
-
-- GitHub: https://github.com/HyperKunai
