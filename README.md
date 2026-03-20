@@ -1,97 +1,129 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Contact Book Mobile Application
+Overview
 
-# Getting Started
+This project is a Contact Book mobile application developed using React Native as part of the Mobile Computing course.
+The application allows users to create, edit, delete, and manage contacts while supporting offline-first functionality and data synchronization logic.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+The system stores data locally using a mobile database and synchronizes changes when network connectivity is restored.
 
-## Step 1: Start Metro
+Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+The application includes the following functionality:
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+• Create new contacts
+• Edit existing contacts
+• Delete contacts
+• View a list of contacts
+• Local data persistence using a mobile database
+• Offline-first functionality
+• Network connectivity detection
+• Automatic synchronization when internet connectivity returns
+• Visual indicators for synchronization status
+• Snackbar notifications for user actions
 
-```sh
-# Using npm
-npm start
+Technologies Used:
 
-# OR using Yarn
-yarn start
-```
+This project was built using the following technologies:
 
-## Step 2: Build and run your app
+• React Native – mobile application framework
+• TypeScript – typed JavaScript for safer development
+• React Navigation – navigation between screens
+• React Native Paper – UI component library
+• Realm Database – local mobile database storage
+• NetInfo – network connectivity detection
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Application Architecture
 
-### Android
+The project follows a modular architecture separating concerns between UI components, application state, and database logic.
 
-```sh
-# Using npm
+Main components:
+
+Screens
+ContactListScreen
+ContactFormScreen
+Components
+ContactCard
+ContactForm
+State Management
+React Context (ContactsContext)
+Database Layer
+Realm database for local persistence
+Network Layer
+NetInfo for connectivity monitoring
+Offline-First Behavior
+The application supports an offline-first architecture.
+
+When the device is offline:
+
+• Contacts can still be created, edited, or deleted
+• Changes are stored locally in the database
+• Contacts are marked as Pending Sync
+
+When the device reconnects to the internet:
+
+• The application detects network availability
+• A synchronization process is triggered
+• Pending contacts are marked as Synced
+
+Project Structure:
+src
+ ├── components
+ │   ├── ContactCard.tsx
+ │   └── ContactForm.tsx
+ │
+ ├── screens
+ │   ├── ContactListScreen.tsx
+ │   └── ContactFormScreen.tsx
+ │
+ ├── context
+ │   └── ContactsContext.tsx
+ │
+ └── db
+     └── realm.ts
+
+How to Run the Project:
+Requirements:
+
+The following tools must be installed:
+
+• Node.js
+• Android Studio
+• Android SDK
+• A physical Android device or Android emulator
+
+Installation
+
+Clone or download the project and run:
+
+npm install
+Run the Metro Server
+npx react-native start
+Run the Application
+
+In another terminal:
+
 npm run android
 
-# OR using Yarn
-yarn android
-```
+Demonstration:
 
-### iOS
+The application demonstrates the following workflow:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Create contacts
+Edit contacts
+Delete contacts
+Local database persistence
+Offline data creation
+Automatic synchronization when connectivity returns
+Future Improvements
+Potential improvements for the application include:
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+• Integration with a real backend API
+• Cloud synchronization
+• User authentication
+• Contact search functionality
+• Improved UI design and animations
 
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Author:
+Student Name: Edward A. Navarreto Lassalle
+Course: Mobile Computing
+Project: Contact Book Application

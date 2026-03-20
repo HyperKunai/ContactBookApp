@@ -1,45 +1,42 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {Provider as PaperProvider} from 'react-native-paper';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import ContactListScreen from './src/screens/ContactListScreen';
+import ContactFormScreen from './src/screens/ContactFormScreen';
+import {ContactsProvider} from './src/context/ContactsContext';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+const Stack = createStackNavigator();
 
+function App(): React.JSX.Element {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <PaperProvider>
+      <SafeAreaProvider>
+        <ContactsProvider>
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName="ContactList">
+              <Stack.Screen
+                name="ContactList"
+                component={ContactListScreen}
+                options={{title: 'Contacts'}}
+              />
+              <Stack.Screen
+                name="ContactForm"
+                component={ContactFormScreen}
+                options={({route}: any) => ({
+                  title: route.params?.contact
+                    ? 'Edit Contact'
+                    : 'Add Contact',
+                })}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </ContactsProvider>
+      </SafeAreaProvider>
+    </PaperProvider>
   );
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
